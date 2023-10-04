@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>All in One Search Engine</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .video-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      background: #1c0522;
+      margin: 0 auto;
+    }
+
+    .video-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+      background-color: white;
+      border-radius: 10px;
+    } 
+
+    .thumbnail {
+      width: 100%;
+    }
+
+    .video-info {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .video-info a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .video-info p {
+      margin: 5px 0;
+    }
+   
+    .video-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #result-count {
+  padding: 10px;
+  background-color: #1c0522;
+  color: white;
+  border-radius: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: inline-block;
+  min-width: 100px;
+  text-align: center;
+  display: none;
+  
+}
+.hashtags .hidden {
+  display: none;
+}
+.like-icon {
+      font-size: 24px;
+      cursor: pointer;
+      display: block;
+      margin-top: 5px; /* Adjust margin as needed */
+    }
+
+    .like-icon.liked {
+      color: red;
+    }
+
+    * {
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+#backtotop-btn {
+    visibility: hidden;
+    position: fixed;
+    cursor: pointer;
+    right: 16px;
+    bottom: 16px;
+    user-select: none;
+    transition: 1s;
+}
+
+.rocket {
+    display: block;
+    font-size: 35px;
+    transform: rotate(315deg);
+}
+
+
+
+
+.arrow-top {
+    display: block;
+    width: 64px;
+    height: 64px;
+    pointer-events: none;
+    background-color: #0fb;
+    border-radius: 50%;
+}
+
+.slide-in-bottom {
+    -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-out-top {
+    -webkit-animation: slide-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: slide-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+
+@-webkit-keyframes slide-in-bottom {
+    0% {
+        -webkit-transform: translateY(1000px);
+        transform: translateY(1000px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        -webkit-transform: translateY(1000px);
+        transform: translateY(1000px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slide-out-top {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: translateY(-1000px);
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+}
+
+@keyframes slide-out-top {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: translateY(-1000px);
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes scale-in-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scale-in-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes scale-out-center {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scale-out-center {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+}
+
+
+
+  </style>
+</head>
+<body>
+  <span id="backtotop-btn">
+    <!------------------------->
+    <!-- ROCKET EMOJI BUTTON -->
+    <!------------------------->
+    <span class="rocket">🚀</span>
+    <!----------------->
+    <!-- TEXT BUTTON -->
+    <!----------------->
+    <!-- <span class="text">Back To Top</span> -->
+    <!-------------------------->
+    <!-- ARROW TOP SVG BUTTON -->
+    <!-------------------------->
+    <!-- <img class="arrow-top" src="https://www.linkpicture.com/q/up-arrow.svg"> -->
+</span>
+  <nav class="flex-div">
+    <div class="nav-left">
+
+      
+
+    </div>
+    <div class="nav-middle">
+
+       
+    </div>
+    <div class="nav-right"></div>
+  </nav>
+
+  <section>
+    <img src="stars.png" id="stars" alt="Stars" />
+    <img src="moon.png" id="moon" alt="Moon" />
+    <img src="mountains_behind.png" id="mountains_behind" alt="Mountains Behind" />
+   
+    
+    
+  </section>
+  
+
+  <div class="video-list">
+   
+    <div class="video-item">
+      <a href=""><img src="robo1.jpg" class="thumbnail" alt="Thumbnail 1" /></a>
+      
+      <div class="video-info">
+        
+        
+        <img src="robo3.jpg" class="logo" alt="Channel Logo" />
+
+        <div>
+          <a href="">Best channel of the world this channel.</a>
+          <p>ramalinga</p>
+          <p>20k views 2 days ago</p>
+          <div class="hashtags">
+          <p  class="hidden">bluecolor,red color yellow color</p>
+        </div>
+        </div>
+        <span class="like-icon" onclick="toggleLike(this)">&#x1F5A4;</span>
+
+      </div>
+    </div>
+    <div class="video-item">
+      <a href=""><img src="robo1.jpg" class="thumbnail" alt="Thumbnail 1" /></a>
+      
+      <div class="video-info">
+        
+        
+        <img src="robo3.jpg" class="logo" alt="Channel Logo" />
+
+        <div>
+          <a href="">Best channel of the world this channel.</a>
+          <p>ramalinga</p>
+          <p>20k views 2 days ago</p>
+          <div class="hashtags">
+          <p  class="hidden">bluecolor,red color yellow color</p>
+        </div>
+        </div>
+        <span class="like-icon" onclick="toggleLike(this)">&#x1F5A4;</span>
+
+      </div>
+    </div>
+    <div class="video-item">
+      <a href=""><img src="robo1.jpg" class="thumbnail" alt="Thumbnail 1" /></a>
+      
+      <div class="video-info">
+        
+        
+        <img src="robo3.jpg" class="logo" alt="Channel Logo" />
+
+        <div>
+          <a href="">Best channel of the world this channel.</a>
+          <p>ramalinga</p>
+          <p>20k views 2 days ago</p>
+          <div class="hashtags">
+          <p  class="hidden">bluecolor,red color yellow color</p>
+        </div>
+        </div>
+        <span class="like-icon" onclick="toggleLike(this)">&#x1F5A4;</span>
+
+      </div>
+    </div>
+    
+   
+
+    <!-- Add more video items similarly -->
+  </div>
+
+  <script>
+    // Scroll effect script remains the same
+    let stars = document.getElementById('stars');
+    let moon = document.getElementById('moon');
+    let mountains_behind = document.getElementById('mountains_behind');
+    let text = document.getElementById('text');
+    let btn = document.getElementById('btn');
+    let mountains_front = document.getElementById('mountains_front');
+    let header = document.querySelector('header');
+
+    window.addEventListener('scroll', function() {
+      let value = window.scrollY;
+      stars.style.left = value * 0.25 + 'px';
+      moon.style.top = value * 1.05 + 'px';
+      mountains_behind.style.top = value * 0.5 + 'px';
+      mountains_front.style.top = value * 0 + 'px';
+      text.style.marginRight = value * 4 + 'px';
+      text.style.marginTop = value * 1.5 + 'px';
+      btn.style.marginTop = value * 1.5 + 'px';
+      header.style.top = value * 0.5 + 'px';
+    });
+    
+    function toggleLike(likeIcon, videoInfo) {
+  // Toggle the like icon
+  if (likeIcon.innerHTML === '🖤') {
+    likeIcon.innerHTML = '❤️';
+    saveLikedVideo(videoInfo);
+  } else {
+    likeIcon.innerHTML = '🖤';
+    removeLikedVideo(videoInfo);
+  }
+}
+
+
+    // Getting back to top button
+const backtotop_btn = document.getElementById("backtotop-btn")
+
+// When page is being scrolled
+window.onscroll = function () {
+    /*
+    • When scrolling down 700px from the top of the page, display the button
+    • document.documentElement - For Chrome, Firefox, IE and Opera
+    • document.body - For Safari
+    */
+    if (document.documentElement.scrollTop > 700 || document.body.scrollTop > 700) {
+        /* ROCKET EMOJI - SHOW ANIMATION */
+        backtotop_btn.setAttribute("class", "slide-in-bottom")
+
+        /* TEXT & ARROW TOP SVG - SHOW ANIMATION */
+        // backtotop_btn.setAttribute("class", "scale-in-center")
+
+        // Show back to top button
+        backtotop_btn.style.visibility = "visible"
+    } else {
+        /* ROCKET EMOJI - HIDE ANIMATION */
+        backtotop_btn.setAttribute("class", "slide-out-top")
+
+        /* TEXT & ARROW TOP SVG - HIDE ANIMATION */
+        // backtotop_btn.setAttribute("class", "scale-out-center")
+
+        // Hide back to top button
+        backtotop_btn.style.visibility = "hidden"
+    }
+}
+
+// When back to top button is clicked
+backtotop_btn.onclick = function () {
+    // For Chrome, Firefox, IE and Opera
+    document.documentElement.scrollTop = 0
+    // For Safari
+    document.body.scrollTop = 0
+}
+    
+
+
+  </script>
+</body>
+</html>
