@@ -7,8 +7,195 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./style.css" />
-  <title>All in One Search Engine</title>
+  <title>Yuvadarshu search engine</title>
   <style>
+
+
+
+
+*
+{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent !important;
+
+
+
+}
+a{
+    text-decoration: none;
+    color: #5a5a5a;
+    background: #fff;
+    cursor: pointer;
+}
+
+img{
+    cursor: pointer;
+    
+
+}
+
+
+body
+{
+    min-height: 100vh;
+    background:linear-gradient(#2b1055,#7597de);
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+}   
+
+section
+ {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+ section::before
+    {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top,#1c0522,transparent);
+    z-index: 1000;
+    }
+    section img
+    {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+        }
+        section img#moon
+        {
+            mix-blend-mode: screen;
+        }
+        section img#mountains_front
+        {
+            z-index: 10;
+        }
+        #text
+        {
+            position: absolute;
+            color: #fff;
+            white-space: nowrap;
+            font-size: 7.5vw;
+            z-index: 9;
+            right: -350px;
+        }
+        #btn 
+        {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 30px;
+            border-radius: 40px;
+            background:#fff;
+            color: #2b1055;
+            font-size: 1.5em;
+            z-index: 9;
+            transform: translateY(100px);
+        }
+.sec
+    {
+    position: relative;
+    /* padding: 100px; */
+    background: #1c0522;
+
+    display: flex;
+    flex-direction: column;
+    color: #f9fafb;
+    padding: 0 40px;
+    height: 100%;
+    overflow: auto;
+    
+            } 
+        
+ .list-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-column-gap: 16px;
+    grid-row-gap: 30px;
+    margin-top: 15px;
+ }
+ .list-container img{
+    background: #fff;
+ }
+
+.vid-list .thumbnail{
+    width: 100%;
+    border-radius: 2.5px;
+    padding-bottom: 0;
+}
+.vid-list .flex-div{
+    background: #fff;
+    align-items: flex-start;
+    margin-top: 0;
+    width: 100%;
+    padding-top:10;
+}
+.vid-list .flex-div img{
+width: 30px;
+margin-right: 300px;
+border-radius: 50%;
+margin-top: 0;
+padding-bottom:10px;
+}
+.vid-info{
+    color: #5a5a5a;
+    font-size: 13px;
+}
+.vid-info a{
+    color: #000;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+
+}
+ nav{
+    padding: 10px 2%;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(0 0 0 0.2);
+    background: #34255c;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+.nav-right img{
+    width: 25px;
+    margin-right: 25px;
+}
+.nav-right .user-icon{
+width: 35px;
+border-radius: 30%;
+margin-right: 0;
+}
+.nav-middle .mic-icon{
+    width: 16px;
+}
+.nav-middle .search-box{
+    border: 1px solid #ccc;
+    margin-right: 15px;
+    padding: 8px 12px;
+    border-radius: 25px;
+}
+
+ 
+
+ 
 
 
 @media (max-width: 768px) {
@@ -20,11 +207,7 @@
         width: 100%;
       }
     }
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+   
     .suggestion-item.results-suggestion {
   font-weight: bold;
   color: #1c0522; /* Adjust the color as needed */
@@ -59,24 +242,27 @@
 
     .thumbnail {
       width: 100%;
+      border-radius: 10px;
+
     }
 
     .video-info {
       display: flex;
       align-items: top;
+      
     }
 
     .logo {
-      width: 30px;
-      height: 30px;
+      width: 39px;
+      height: 39px;
       border-radius: 50%;
       margin-right: 10px;
     }
 
     .video-info a {
-      color: #333;
+      color: #000000;
       text-decoration: none;
-      font-size: 15px;
+      font-size: 13px;
       
 
     }
@@ -88,6 +274,9 @@
     .video-info p {
       margin: 5px 0;
       font-size: 13px;
+      color: #333; /* Adjust the font size as needed */
+
+
 
     }
     .search-bar-container {
@@ -122,11 +311,14 @@
       color: white;
       border-radius: 25px;
       padding: 10px 20px;
-      margin-left: -30px;
+      margin-left: -50px;
       cursor: pointer;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: background-color 0.3s ease;
     }
+    .search-bar:focus {
+      width: 260px;
+    } 
 
     .search-bar-button:hover {
       background-color: #333;
@@ -162,7 +354,7 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: none;
     width: 95%; /* Make the suggestion list the same width as the search bar */
-    top: 55%; /* Position it below the search bar */
+    top:10%; /* Position it below the search bar */
     margin-top: 5px; /* Add some spacing between the search bar and the suggestion list */
 }
 #result-count {
@@ -279,6 +471,15 @@ nav {
     .nav-left:hover {
       color: #f0c419; /* Change color on hover */
     }
+    .nav-left a{
+      background-color: transparent;
+      transition: color 0.3s;
+      color: #fb00ff;
+    }
+    .nav-left a:hover{
+      color: #f0c419; 
+
+    }
     
     
 
@@ -352,6 +553,7 @@ nav {
 
 /* Style for toggle button */
 .toggle-button {
+
   padding: 12px 24px;
   border: none;
   border-radius: 5px;
@@ -380,6 +582,8 @@ nav {
 .filtered-videos-container .video-item {
   /* Existing styles */
   border: 1px solid #ccc;
+
+
     padding: 10px;
     text-align: left;
     background-color: white;
@@ -391,12 +595,16 @@ nav {
 
 /* Dropdown styles */
 .dropdown-content {
-    display: none;
+
+display: none;
+
     position: absolute;
+
     background-color: #f9f9f9;
     min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 2;
+    text-align: center; /* Center the text */
 }
 
 .dropdown-content a {
@@ -414,6 +622,9 @@ nav {
 .show-dropdown {
     display: block;
 }
+.dropdown-content a {
+    text-align: center;
+}
 #dropdown-menu {
   display: none;
   position: absolute;
@@ -430,12 +641,41 @@ nav {
   display: block;
 }
 
+.apps {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  gap: 1px; /* Adding gap between icons */
+}
+.apps span {
+  font-size: 1.5em;
+  transition: color 0.3s, transform 0.3s; /* Adding transition for transform */
+}
+.apps span:hover {
+  color: #f0c419;
+  cursor: pointer;
+  transform: scale(1.2); /* Zoom in effect on hover */
+}
+.apps i {
+  font-size: 1.5em;
+  transition: color 0.3s, transform 0.3s; /* Adding transition for transform */
+}
+.apps i:hover {
+  color: #f0c419;
+  cursor: pointer;
+  transform: rotate(45deg); /* Rotate effect on hover */
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
 #backtotop-btn {
     visibility: hidden;
     position: fixed;
     cursor: pointer;
     right: 16px;
-    bottom: 16px;
+    bottom: 120px;
     user-select: none;
     transition: 1s;
 }
@@ -583,6 +823,29 @@ nav {
 
 
 
+/* CSS to style the scrollable dropdown content and close icon */
+.scrollable-content {
+    max-height: 500px; /* Adjust the maximum height to your preference */
+    overflow-y: auto;
+}
+
+.close-icon {
+    cursor: pointer;
+    display: block;
+    color: red; /* Change the color to your desired color */
+    padding: 10px; /* Adjust the padding as needed */
+    border: 1px solid red; /* Add a border for a button-like appearance */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    margin-bottom: 5px; /* Optional: Add some margin between items */
+}
+
+.close-icon:hover {
+    background-color: #ffdddd; /* Change the background color on hover */
+}
+
+
+
+
 
 
 
@@ -607,20 +870,27 @@ nav {
     
     
     <div class="nav-right navbar-icons">
-      <span onclick="toggleDropdown('settingsDropdown')">⚙️</span>
-      <span>&#128269;</span> <!-- Search icon -->
-      <span>&#128276;</span> <!-- Bell icon -->
-      <span>&#128100;</span> <!-- User icon -->
-      <span>&#128231;</span> <!-- Envelope icon -->
-      <span>&#9881;</span> <!-- Gear icon -->
+      <span onclick="toggleDropdown('settingsDropdown')">🔍</span>
+      
+  </div>
+  <div class="apps">
+    <span onclick="toggleDropdown('appsDropdown')">📱</span>
+    <span onclick="toggleDropdown('appsDropdown')">💎</span>
+    <span onclick="toggleDropdown('appsDropdown')">📱</span>
+    <span onclick="toggleDropdown('appsDropdown')">📱</span>
+    <span onclick="toggleDropdown('appsDropdown')">📱</span>
+    
+   
   </div>
   <div class="nav-left">
-    Search
+    <a href="#">Yuvadarshu</a>
   </div>
 </nav>
 
 <div class="dropdown" id="dropdown">
   <div class="dropdown-content" id="dropdownContent">
+    <div class="scrollable-content">
+
     <a href="#"></a>
     <a href="#"></a>
     <a href="#"></a>
@@ -641,9 +911,12 @@ nav {
     <a href="#">Settings 0</a>
     <a href="#">Settings 1</a>
     <a href="#">Settings 2</a>
+    <span class="close-icon" onclick="closeDropdown()">Close Dropdown</span>
+  </div>
+
   </div>
 </div>
-  </nav>
+  
 
   <section>
     <img src="stars.png" id="stars" alt="Stars" />
@@ -665,8 +938,18 @@ nav {
     <div class="search-bar-container">
 
         <input type="text" class="search-bar" placeholder="Search...">
+       
         
         <button class="search-bar-button">Search</button>
+        <button onclick="runSpeechRecog()" style=
+        "border: transparent;
+        color: #1c0522;
+        background-color: #1c0522;
+        
+        border-radius: 0 0.5rem;">
+  
+          🎤
+        </button>
         <!-- <div id="result-count">Results: 0</div> -->
 
       </div>
@@ -679,6 +962,7 @@ nav {
     
     
   </section>
+  <div id="search-results"></div>
 
 
   <div id="filtered-videos" class="filtered-videos-container"></div>
@@ -787,7 +1071,7 @@ nav {
         </div>
       </div>
     </div>
-    <div class="video-item"  data-category="tutorials"  data-date="2023-03-02">
+    <div class="video-item"  data-category="tutorials"  data-date="2024-03-02">
       <a href=""><img src="robo1.jpg" class="thumbnail" alt="Thumbnail 1" /></a>
       <div class="video-info">
         <img src="robo3.jpg" class="logo" alt="Channel Logo" />
@@ -798,7 +1082,7 @@ nav {
           <p>19k views 5 days ago</p>
           <div class="hashtags">
           <p  class="hidden">jockey,red color yellow color</p>
-          <p  class="hidden">lake</p>
+          <p  class="hidden">cable</p>
         </div>
         </div>
       </div>
@@ -864,9 +1148,10 @@ nav {
           const title = videoItem.querySelector('.video-info a').innerText.toLowerCase();
           const description = videoItem.querySelectorAll('.video-info p')[0].innerText.toLowerCase();
           const paragraphs = Array.from(videoItem.querySelectorAll('.video-info p')).slice(1).map(p => p.innerText.toLowerCase());
+          const hashtags = Array.from(videoItem.querySelectorAll('.hashtags p.hidden')).map(p => p.innerText.toLowerCase());
 
           // Check if any of the search words (without hashtags) are present in title, description, or paragraphs
-          const found = searchWordsWithoutHashtags.some(word => title.includes(word) || description.includes(word) || paragraphs.some(paragraph => paragraph.includes(word)));
+          const found = searchWordsWithoutHashtags.some(word => title.includes(word) || description.includes(word) || paragraphs.some(paragraph => paragraph.includes(word)) || hashtags.includes(word));
 
           if (found) {
             videoItem.style.display = 'block';
@@ -1152,9 +1437,102 @@ const navbarIcons = document.querySelector('.navbar-icons');
         }
 
 
+        
+   
+        let isListening = false;
+   
 
-  // Getting back to top button
-  const backtotop_btn = document.getElementById("backtotop-btn")
+
+
+
+
+
+   function runSpeechRecog() {
+ const searchBar = document.querySelector('.search-bar');
+ const videoItems = document.querySelectorAll('.video-item');
+ const noResultsMessage = document.getElementById('no-results-message');
+
+ if (!isListening) {
+   searchBar.placeholder = 'Listening...';
+
+   const recognition = new webkitSpeechRecognition();
+   recognition.onstart = () => {
+     console.log('Speech recognition started');
+   };
+
+   recognition.onresult = (event) => {
+     const transcript = event.results[0][0].transcript;
+     // Filter out non-alphanumeric characters and convert to lowercase
+     const filteredTranscript = transcript.replace(/[^a-zA-Z0-9 ]/g, '').toLowerCase();
+     searchBar.value = filteredTranscript;
+     searchBar.placeholder = '🎤 Search...';
+
+     // Separate video items into two groups: matches and non-matches
+     const matchingItems = [];
+     const nonMatchingItems = [];
+
+     videoItems.forEach((item) => {
+       const videoInfo = item.querySelector('.video-info');
+       const videoTitle = videoInfo.querySelector('a').innerText.toLowerCase();
+       const paragraphText = videoInfo.querySelector('p').innerText.toLowerCase();
+       const hashtags = Array.from(videoInfo.querySelectorAll('.hashtags p.hidden')).map(p => p.innerText.toLowerCase());
+
+       if (videoTitle.includes(filteredTranscript) || 
+            paragraphText.includes(filteredTranscript) ||
+            hashtags.includes(filteredTranscript)) {
+          matchingItems.push(item);
+        } else {
+          nonMatchingItems.push(item);
+        }
+      });
+
+     // Display matching video items first, then non-matching ones
+     videoItems.forEach((item) => {
+        if (matchingItems.includes(item)) {
+          item.classList.add('show');
+        } else {
+          item.classList.remove('show');
+        }
+      });
+
+
+     // Display message if no results found
+     if (matchingItems.length === 0) {
+       noResultsMessage.style.display = 'block';
+     } else {
+       noResultsMessage.style.display = 'none';
+     }
+   };
+
+   recognition.onend = () => {
+     searchBar.placeholder = '🎤 Search...';
+     isListening = false;
+
+     // If no text was transcribed, show all videos
+     if (searchBar.value.trim() === '') {
+       videoItems.forEach((item) => {
+         item.classList.add('show');
+       });
+
+       noResultsMessage.style.display = 'none';
+     }
+   };
+
+   recognition.start();
+   isListening = true;
+ } else {
+   searchBar.placeholder = '🎤 Search...';
+   recognition.stop();
+   isListening = false;
+ }
+}
+
+
+
+
+
+    // Getting back to top button
+    const backtotop_btn = document.getElementById("backtotop-btn")
 
 // When page is being scrolled
 window.onscroll = function () {
@@ -1191,13 +1569,14 @@ backtotop_btn.onclick = function () {
     // For Safari
     document.body.scrollTop = 0
 }
+
+function closeDropdown() {
+    const dropdownContent = document.getElementById('dropdownContent');
+    dropdownContent.style.display = 'none';
+}
+
     
 
-
-   
-
-  
-   
 
   </script>
 </body>
